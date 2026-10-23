@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://ashfeerka007-netizen.github.io/WDPCS-website/sitemap.xml
+Sitemap: https://wdpcs.github.io/wdpcs_official_wesite/sitemap.xml

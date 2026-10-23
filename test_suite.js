@@ -440,7 +440,7 @@ PUBLIC_INDEXABLE_PAGES.forEach(page => {
   
   // Canonical check
   assert(content.includes('rel="canonical"'), `${page} contains canonical link`);
-  assert(content.includes('https://ashfeerka007-netizen.github.io/WDPCS-website/'), `${page} contains canonical domain`);
+  assert(content.includes('https://wdpcs.github.io/wdpcs_official_wesite/'), `${page} contains canonical domain`);
   
   // Robots check
   assert(content.includes('<meta name="robots" content="index, follow">'), `${page} contains index, follow robots meta`);
@@ -480,14 +480,14 @@ assert(notFoundHtml.includes('<meta name="robots" content="noindex, nofollow">')
 
 // Robots.txt & Sitemap.xml Canonical Domain Checks
 const robotsContent = fs.readFileSync(path.join(ROOT_DIR, 'robots.txt'), 'utf-8');
-assert(robotsContent.includes('https://ashfeerka007-netizen.github.io/WDPCS-website/sitemap.xml'), 'robots.txt contains GitHub Pages canonical sitemap URL');
+assert(robotsContent.includes('https://wdpcs.github.io/wdpcs_official_wesite/sitemap.xml'), 'robots.txt contains GitHub Pages canonical sitemap URL');
 assert(robotsContent.includes('Allow: /'), 'robots.txt allows indexing');
 
 const sitemapContent = fs.readFileSync(path.join(ROOT_DIR, 'sitemap.xml'), 'utf-8');
 PUBLIC_INDEXABLE_PAGES.forEach(page => {
   const expectedUrl = page === 'index.html' 
-    ? 'https://ashfeerka007-netizen.github.io/WDPCS-website/'
-    : `https://ashfeerka007-netizen.github.io/WDPCS-website/${page}`;
+    ? 'https://wdpcs.github.io/wdpcs_official_wesite/'
+    : `https://wdpcs.github.io/wdpcs_official_wesite/${page}`;
   assert(sitemapContent.includes(expectedUrl), `sitemap.xml contains indexable URL: ${expectedUrl}`);
 });
 
