@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://wdpcs.github.io/wdpcs_official_wesite/sitemap.xml
+Sitemap: https://wdpcs.github.io/wdpcs_official_website/sitemap.xml
