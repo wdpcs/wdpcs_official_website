@@ -269,11 +269,11 @@ function showExternalBookingModal(serviceName) {
             </div>
           </div>
           <p style="font-size:0.9rem; color:var(--color-neutral-700);">
-            The official external accommodation portal is <a href="https://ashfeerka007-netizen.github.io/mountain_stay_retrete/" target="_blank" rel="noopener noreferrer" style="font-weight:700; color:var(--color-primary-800); text-decoration:underline;">Mountain Stay Retreat (https://ashfeerka007-netizen.github.io/mountain_stay_retrete/)</a>.
+            The official external accommodation portal is <a href="https://rooms.wdpcs.in/" target="_blank" rel="noopener noreferrer" style="font-weight:700; color:var(--color-primary-800); text-decoration:underline;">Mountain Stay Retreat (https://rooms.wdpcs.in/)</a>.
           </p>
         </div>
         <div class="modal-footer">
-          <a href="https://ashfeerka007-netizen.github.io/mountain_stay_retrete/" target="_blank" rel="noopener noreferrer" class="btn btn-accent btn-sm">Open Mountain Stay Retreat</a>
+          <a href="https://rooms.wdpcs.in/" target="_blank" rel="noopener noreferrer" class="btn btn-accent btn-sm">Open Mountain Stay Retreat</a>
           <a href="contact.html" class="btn btn-primary btn-sm">Contact Office for Bookings</a>
           <button type="button" class="btn btn-secondary btn-sm modal-close-btn">Close</button>
         </div>

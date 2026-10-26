@@ -44,8 +44,8 @@ const SITE_SEARCH_INDEX = [
     title: "Society Rooms & Dormitories (Mountain Stay Retreat)",
     category: "Facilities",
     url: "rooms-dormitories.html",
-    description: "Accommodation facilities in Wayanad with direct links to Mountain Stay Retreat for guest rooms, dormitory, and suite room details and online booking.",
-    keywords: "rooms dormitories accommodation booking stay lodging guest house police transit mountain stay retrete retreat suite suit room details"
+    description: "Accommodation facilities in Wayanad with direct links to Mountain Stay Retreat (rooms.wdpcs.in) for guest rooms, dormitory, and suite room details and online booking.",
+    keywords: "rooms dormitories accommodation booking stay lodging guest house police transit mountain stay retrete retreat suite suit room details rooms.wdpcs.in rooms wdpcs in"
   },
   {
     title: "Contact & Enquiries",
