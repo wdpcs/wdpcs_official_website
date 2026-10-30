@@ -50,6 +50,7 @@ const REQUIRED_ASSETS = [
   'assets/images/society-rooms-dormitory.jpg',
   'assets/images/society-guest-room.jpg',
   'assets/images/society-dormitory.jpg',
+  'assets/images/secretary-rajani-k-k.jpg',
   'assets/images/gallery-1.svg',
   'assets/images/gallery-2.svg',
   'assets/images/gallery-3.svg',
@@ -276,6 +277,10 @@ expectedDirectors.forEach(dir => {
 });
 assert(fs.existsSync(path.join(ROOT_DIR, 'assets/images/director-ajeesh-p-s.jpg')), 'director-ajeesh-p-s.jpg photo asset exists');
 assert(aboutContent.includes('assets/images/director-ajeesh-p-s.jpg'), 'about.html references director-ajeesh-p-s.jpg photo');
+assert(aboutContent.includes('RAJANI K K'), 'about.html contains Secretary: RAJANI K K');
+assert(aboutContent.includes('Secretary') || aboutContent.includes('SECRETARY'), 'about.html contains Secretary designation');
+assert(fs.existsSync(path.join(ROOT_DIR, 'assets/images/secretary-rajani-k-k.jpg')), 'secretary-rajani-k-k.jpg photo asset exists');
+assert(aboutContent.includes('assets/images/secretary-rajani-k-k.jpg'), 'about.html references secretary-rajani-k-k.jpg photo');
 
 console.log('\n==================================================');
 console.log('6. VERIFYING SUPPORTING & LEGAL PAGES SPECIFICS');

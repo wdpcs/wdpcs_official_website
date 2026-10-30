@@ -1850,6 +1850,15 @@
   border-color: var(--color-primary-400);
 }
 
+.director-card.executive-secretary {
+  border-top: 4px solid #0284c7;
+  background: linear-gradient(180deg, rgba(2, 132, 199, 0.04) 0%, rgba(255, 255, 255, 1) 100%);
+}
+
+.director-card.executive-secretary:hover {
+  border-color: #38bdf8;
+}
+
 .director-card.director-member {
   border-top: 4px solid var(--color-accent-green-700);
   background: linear-gradient(180deg, rgba(16, 185, 129, 0.02) 0%, rgba(255, 255, 255, 1) 100%);
@@ -1918,6 +1927,18 @@
   box-shadow: 0 6px 16px rgba(30, 62, 98, 0.18);
 }
 
+.director-card.executive-secretary .director-avatar-wrap {
+  width: 130px;
+  height: 130px;
+  min-width: 130px;
+  min-height: 130px;
+  background: #f0f9ff;
+  border-color: #0284c7;
+  border-width: 4px;
+  color: #0369a1;
+  box-shadow: 0 6px 16px rgba(2, 132, 199, 0.18);
+}
+
 .director-card.director-member .director-avatar-wrap {
   border-color: #cbd5e1;
   border-width: 4px;
@@ -1960,6 +1981,13 @@
   color: var(--color-primary-900);
   border: 1px solid #bfdbfe;
   box-shadow: 0 1px 3px rgba(30, 62, 98, 0.08);
+}
+
+.role-secretary {
+  background: #e0f2fe;
+  color: #0369a1;
+  border: 1px solid #bae6fd;
+  box-shadow: 0 1px 3px rgba(3, 105, 161, 0.08);
 }
 
 .role-director {

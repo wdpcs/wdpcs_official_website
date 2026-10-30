@@ -17,7 +17,7 @@ const SITE_SEARCH_INDEX = [
     category: "Main Pages",
     url: "about.html",
     description: "Learn about the society's history, scope of membership for Kerala Police personnel, co-operative values, purpose, and governance.",
-    keywords: "about who we serve purpose governance managing committee background registration W 208"
+    keywords: "about who we serve purpose governance managing committee board of directors president vice president secretary rajani k k background registration W 208"
   },
   {
     title: "Services & Financial Products",
