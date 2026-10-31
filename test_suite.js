@@ -505,7 +505,7 @@ assert(contactFormHtml.includes('8301995940'), 'contact.html explicitly features
 assert(contactFormHtml.includes('wdpcs.208@gmail.com'), 'contact.html explicitly states official mailbox wdpcs.208@gmail.com');
 assert(contactFormHtml.includes('04936 205940') || contactFormHtml.includes('04936205940'), 'contact.html explicitly includes landline 04936 205940');
 assert(contactFormHtml.includes('id="startWhatsAppChatBtn"'), 'contact.html contains #startWhatsAppChatBtn');
-assert(contactFormHtml.includes('class="wa-topic-chip"'), 'contact.html contains 1-tap WhatsApp quick topic chips');
+assert(contactFormHtml.includes('id="societyEnquiryForm"'), 'contact.html contains #societyEnquiryForm simple WhatsApp enquiry form');
 assert(contactFormJs.includes('8301995940'), 'js/contact.js targets society WhatsApp 8301995940');
 assert(contactFormJs.includes('https://wa.me/'), 'js/contact.js creates official wa.me direct chat link');
 assert(contactFormJs.includes('startWhatsAppChatBtn'), 'js/contact.js binds click event to startWhatsAppChatBtn');
