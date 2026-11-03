@@ -51,6 +51,7 @@ const REQUIRED_ASSETS = [
   'assets/images/society-guest-room.jpg',
   'assets/images/society-dormitory.jpg',
   'assets/images/secretary-rajani-k-k.jpg',
+  'assets/images/thinkinit-logo.png',
   'assets/images/gallery-1.svg',
   'assets/images/gallery-2.svg',
   'assets/images/gallery-3.svg',
@@ -247,6 +248,7 @@ REQUIRED_PAGES.forEach(page => {
   assert(content.includes('header-search-btn'), `${page} has header search button`);
   assert(content.includes('headerSearchModal'), `${page} has header search modal`);
   assert(content.includes('site-footer'), `${page} has standardized footer`);
+  assert(content.includes('ThinkinIT'), `${page} contains website design courtesy : ThinkinIT`);
   assert(content.includes('04936 205940') || content.includes('04936205940'), `${page} contains official telephone 04936 205940`);
 });
 
