@@ -13,6 +13,20 @@ document.addEventListener('DOMContentLoaded', () => {
   const messageInput = document.getElementById('waMessage');
   const startChatBtn = document.getElementById('startWhatsAppChatBtn');
 
+  // Support URL query parameter pre-selection (e.g., ?category=Santhwanam%20Welfare%20Scheme)
+  if (categorySelect) {
+    const urlParams = new URLSearchParams(window.location.search);
+    const requestedCat = (urlParams.get('category') || '').trim().toLowerCase();
+    if (requestedCat) {
+      const matchOption = Array.from(categorySelect.options).find(
+        opt => opt.value.toLowerCase() === requestedCat || opt.textContent.toLowerCase().includes(requestedCat)
+      );
+      if (matchOption) {
+        categorySelect.value = matchOption.value;
+      }
+    }
+  }
+
   // Simple Enquiry Form Redirect to WhatsApp
   if (startChatBtn) {
     startChatBtn.addEventListener('click', () => {

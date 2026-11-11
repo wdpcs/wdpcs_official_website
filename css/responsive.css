@@ -228,6 +228,75 @@ textarea,
     font-weight: 800;
     border-left-color: var(--color-primary-700);
   }
+
+  /* Mobile Drawer Dropdown for Services Submenu */
+  .nav-item.nav-dropdown {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .nav-dropdown-trigger {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    gap: 6px;
+  }
+
+  .nav-dropdown-trigger .nav-link {
+    flex: 1 1 auto;
+  }
+
+  .nav-dropdown-toggle {
+    min-width: var(--touch-target-min);
+    min-height: var(--touch-target-min);
+    background: var(--color-neutral-50);
+    border: 1px solid var(--color-neutral-200);
+    border-radius: var(--radius-md);
+    flex-shrink: 0;
+  }
+
+  .nav-dropdown-menu {
+    position: static;
+    top: auto;
+    left: auto;
+    min-width: 100%;
+    background: transparent;
+    border: none;
+    border-top: none;
+    border-left: 2px solid var(--color-accent-green-300);
+    border-radius: 0;
+    box-shadow: none;
+    padding: 4px 0 4px var(--space-3);
+    margin: 2px 0 6px var(--space-4);
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .nav-dropdown-menu::before {
+    display: none;
+  }
+
+  .nav-dropdown.mobile-collapsed > .nav-dropdown-menu {
+    display: none;
+  }
+
+  .nav-dropdown:hover > .nav-dropdown-menu,
+  .nav-dropdown:focus-within > .nav-dropdown-menu {
+    display: flex;
+  }
+
+  .nav-dropdown.mobile-collapsed:hover > .nav-dropdown-menu,
+  .nav-dropdown.mobile-collapsed:focus-within > .nav-dropdown-menu {
+    display: none;
+  }
+
+  .nav-dropdown-link {
+    min-height: 40px;
+    padding: 8px 12px;
+    font-size: 0.92rem;
+  }
 }
 
 /* ==========================================================================
@@ -286,6 +355,11 @@ textarea,
     grid-template-columns: repeat(2, 1fr);
     gap: var(--space-8);
     padding-bottom: var(--space-8);
+  }
+
+  .santhwanam-home-card {
+    grid-template-columns: 1fr;
+    gap: var(--space-5);
   }
 
   .contact-grid {
@@ -675,9 +749,28 @@ textarea,
   .value-card,
   .mv-statement-box,
   .enquiry-form-card,
-  .gallery-album-section {
+  .gallery-album-section,
+  .santhwanam-home-card {
     padding: var(--space-5);
     border-radius: var(--radius-lg);
+  }
+
+  .santhwanam-benefit-header {
+    padding: var(--space-4);
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  .santhwanam-benefit-body,
+  .santhwanam-benefit-footer {
+    padding: var(--space-4);
+  }
+
+  .santhwanam-benefit-footer .btn,
+  .santhwanam-hero-actions .btn,
+  .santhwanam-home-cta-panel .btn {
+    width: 100%;
+    min-height: var(--touch-target-min);
   }
 
   .director-card {

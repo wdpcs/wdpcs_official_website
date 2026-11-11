@@ -80,4 +80,14 @@ document.addEventListener('DOMContentLoaded', () => {
       targetPill.click();
     }
   }
+
+  // Smoothly bring targeted document card into view after filter is applied
+  if (window.location.hash) {
+    const targetCard = document.querySelector(window.location.hash);
+    if (targetCard && targetCard.style.display !== 'none') {
+      setTimeout(() => {
+        targetCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }, 60);
+    }
+  }
 });

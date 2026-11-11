@@ -149,7 +149,19 @@
           <ul class="nav-list">
             <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
             <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
-            <li class="nav-item"><a href="services.html" class="nav-link">Services</a></li>
+            <li class="nav-item nav-dropdown">
+              <div class="nav-dropdown-trigger">
+                <a href="services.html" class="nav-link">Services</a>
+                <button type="button" class="nav-dropdown-toggle" aria-expanded="false" aria-haspopup="true" aria-label="Toggle Services submenu">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
+                </button>
+              </div>
+              <ul class="nav-dropdown-menu" aria-label="Services Submenu">
+                <li><a href="services.html#deposits" class="nav-dropdown-link">Deposits &amp; Savings</a></li>
+                <li><a href="services.html#loans" class="nav-dropdown-link">Member Loans</a></li>
+                <li><a href="santhwanam.html" class="nav-dropdown-link nav-dropdown-link-welfare">Santhwanam Welfare Scheme</a></li>
+              </ul>
+            </li>
             <li class="nav-item"><a href="downloads.html" class="nav-link">Downloads</a></li>
             <li class="nav-item"><a href="gallery.html" class="nav-link">Gallery</a></li>
             <li class="nav-item"><a href="rooms-dormitories.html" class="nav-link">Rooms &amp; Dorms</a></li>
@@ -336,14 +348,15 @@
               </div>
 
               <div class="form-group" style="margin-bottom: var(--space-3);">
-                <label for="waCategory" class="form-label" style="font-size:0.8rem; font-weight:600;">Enquiry Category</label>
+                <label for="waCategory" class="form-label" style="font-size:0.8rem; font-weight:600;">Enquiry Type</label>
                 <select id="waCategory" class="form-select">
                   <option value="General Enquiry">General Enquiry</option>
-                  <option value="Loan Schemes">Loan Schemes (Emergency, MT, HP, Festival)</option>
-                  <option value="Deposit Schemes">Deposit Schemes (FD, RD, Savings)</option>
-                  <option value="Room & Dormitory Booking">Society Rooms &amp; Dormitory Stay</option>
-                  <option value="Application Forms">Application Forms &amp; Verification</option>
-                  <option value="Membership & Shares">Membership &amp; Share Capital</option>
+                  <option value="Loan Enquiry">Loan Enquiry</option>
+                  <option value="Deposit Enquiry">Deposit Enquiry</option>
+                  <option value="Santhwanam Welfare Scheme">Santhwanam Welfare Scheme</option>
+                  <option value="Application/Form Enquiry">Application/Form Enquiry</option>
+                  <option value="Room/Dormitory Enquiry">Room/Dormitory Enquiry</option>
+                  <option value="Other">Other</option>
                 </select>
               </div>
 
@@ -577,6 +590,7 @@
           <ul class="footer-nav">
             <li><a href="services.html#loans">&rsaquo; Member Loans</a></li>
             <li><a href="services.html#deposits">&rsaquo; Deposits &amp; Savings</a></li>
+            <li><a href="santhwanam.html">&rsaquo; Santhwanam Welfare Scheme</a></li>
             <li><a href="downloads.html">&rsaquo; Application Forms</a></li>
             <li><a href="notices.html">&rsaquo; Notices &amp; Circulars</a></li>
             <li><a href="faq.html">&rsaquo; Frequently Asked Questions</a></li>

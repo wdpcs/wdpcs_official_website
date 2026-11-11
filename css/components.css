@@ -2281,3 +2281,308 @@
   }
 }
 
+/* ==========================================================================
+   18. Santhwanam Welfare Scheme Components
+   ========================================================================== */
+
+/* Homepage Featured Spotlight Card */
+.santhwanam-home-card {
+  margin-top: var(--space-8);
+  background: linear-gradient(135deg, #ffffff 0%, var(--color-accent-green-50) 68%, var(--color-primary-50) 100%);
+  border: 1.5px solid var(--color-accent-green-200);
+  border-left: 6px solid var(--color-accent-green-700);
+  border-radius: var(--radius-xl);
+  padding: var(--space-8);
+  box-shadow: var(--shadow-md);
+  display: grid;
+  grid-template-columns: 1.55fr 0.85fr;
+  gap: var(--space-8);
+  align-items: center;
+  transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
+}
+
+.santhwanam-home-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-card-hover);
+  border-color: var(--color-accent-green-500);
+}
+
+.santhwanam-home-header-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-bottom: var(--space-3);
+}
+
+.service-badge-pill.welfare {
+  background: var(--color-accent-green-100);
+  color: var(--color-accent-green-900);
+  border: 1px solid var(--color-accent-green-200);
+}
+
+.santhwanam-home-tagline {
+  font-size: var(--text-xs);
+  font-weight: 600;
+  font-style: italic;
+  color: var(--color-accent-green-800);
+}
+
+.santhwanam-home-title {
+  font-family: var(--font-heading);
+  font-size: var(--text-2xl);
+  font-weight: 800;
+  color: var(--color-primary-950);
+  margin-bottom: var(--space-2);
+  letter-spacing: -0.01em;
+}
+
+.santhwanam-home-desc {
+  font-size: var(--text-base);
+  color: var(--color-neutral-700);
+  margin-bottom: var(--space-5);
+  max-width: 640px;
+}
+
+.santhwanam-home-highlights {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.santhwanam-highlight-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--color-white);
+  border: 1px solid var(--color-accent-green-200);
+  border-radius: var(--radius-md);
+  padding: 8px 14px;
+  font-family: var(--font-heading);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  color: var(--color-primary-950);
+  box-shadow: var(--shadow-xs);
+}
+
+.santhwanam-highlight-pill svg {
+  width: 17px;
+  height: 17px;
+  fill: var(--color-accent-green-700);
+  flex-shrink: 0;
+}
+
+.santhwanam-highlight-pill.premium {
+  background: var(--color-primary-950);
+  border-color: var(--color-primary-900);
+  color: var(--color-white);
+}
+
+.santhwanam-highlight-pill.premium svg {
+  fill: #6ee7b7;
+}
+
+.santhwanam-home-cta-panel {
+  background: var(--color-white);
+  border: 1px solid var(--color-accent-green-200);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.santhwanam-cta-label {
+  font-family: var(--font-heading);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-accent-green-800);
+}
+
+.santhwanam-cta-amount {
+  font-family: var(--font-heading);
+  font-size: 2.25rem;
+  font-weight: 800;
+  line-height: 1;
+  color: var(--color-primary-950);
+}
+
+.santhwanam-cta-sub {
+  font-size: var(--text-xs);
+  color: var(--color-neutral-600);
+  margin-bottom: var(--space-1);
+}
+
+/* Dedicated Page: Hero Adjustments */
+.santhwanam-hero {
+  position: relative;
+  overflow: hidden;
+}
+
+.santhwanam-hero-tagline {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #6ee7b7;
+  margin-bottom: var(--space-3);
+  letter-spacing: 0.01em;
+}
+
+.santhwanam-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-top: var(--space-6);
+}
+
+/* About Santhwanam Values Chips */
+.santhwanam-values-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-top: var(--space-5);
+}
+
+.santhwanam-value-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--color-accent-green-50);
+  border: 1px solid var(--color-accent-green-200);
+  color: var(--color-accent-green-900);
+  padding: 7px 14px;
+  border-radius: var(--radius-full);
+  font-family: var(--font-heading);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.santhwanam-value-chip svg {
+  width: 15px;
+  height: 15px;
+  fill: var(--color-accent-green-700);
+}
+
+/* Visually Distinct Benefit Category Cards (Medical Aid vs Death Benefit) */
+.santhwanam-benefit-card {
+  background: var(--color-white);
+  border: 1px solid var(--color-neutral-200);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.santhwanam-benefit-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-card-hover);
+}
+
+.santhwanam-benefit-card.medical {
+  border-top: 5px solid var(--color-accent-green-700);
+}
+
+.santhwanam-benefit-card.death-benefit {
+  border-top: 5px solid var(--color-primary-800);
+}
+
+.santhwanam-benefit-header {
+  padding: var(--space-6);
+  border-bottom: 1px solid var(--color-neutral-100);
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-4);
+}
+
+.santhwanam-benefit-card.medical .santhwanam-benefit-header {
+  background: linear-gradient(to bottom, var(--color-accent-green-50), var(--color-white));
+}
+
+.santhwanam-benefit-card.death-benefit .santhwanam-benefit-header {
+  background: linear-gradient(to bottom, var(--color-primary-50), var(--color-white));
+}
+
+.santhwanam-benefit-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.santhwanam-benefit-card.medical .santhwanam-benefit-icon {
+  background: var(--color-accent-green-100);
+  color: var(--color-accent-green-800);
+  border: 1px solid var(--color-accent-green-200);
+}
+
+.santhwanam-benefit-card.death-benefit .santhwanam-benefit-icon {
+  background: var(--color-primary-100);
+  color: var(--color-primary-900);
+  border: 1px solid var(--color-primary-200);
+}
+
+.santhwanam-benefit-icon svg {
+  width: 26px;
+  height: 26px;
+  fill: currentColor;
+}
+
+.santhwanam-benefit-body {
+  padding: var(--space-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  flex-grow: 1;
+}
+
+.santhwanam-detail-item {
+  background: var(--color-neutral-50);
+  border: 1px solid var(--color-neutral-200);
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+}
+
+.santhwanam-detail-item h4 {
+  font-size: var(--text-sm);
+  font-weight: 700;
+  color: var(--color-primary-950);
+  margin-bottom: var(--space-1);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.santhwanam-detail-item p {
+  font-size: var(--text-sm);
+  color: var(--color-neutral-700);
+  margin-bottom: 0;
+  line-height: 1.55;
+}
+
+.santhwanam-benefit-footer {
+  padding: var(--space-5) var(--space-6) var(--space-6);
+  border-top: 1px solid var(--color-neutral-100);
+  background: var(--color-white);
+  margin-top: auto;
+}
+
+/* Downloads Highlight Pulse for Direct Link Targets */
+.document-card:target {
+  border-color: var(--color-accent-green-600);
+  box-shadow: 0 0 0 3px rgba(28, 109, 68, 0.2), var(--shadow-md);
+  background-color: var(--color-accent-green-50);
+}
+
+

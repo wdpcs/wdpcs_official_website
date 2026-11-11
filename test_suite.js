@@ -7,6 +7,7 @@ const REQUIRED_PAGES = [
   'index.html',
   'about.html',
   'services.html',
+  'santhwanam.html',
   'downloads.html',
   'gallery.html',
   'rooms-dormitories.html',
@@ -29,6 +30,7 @@ const REQUIRED_CSS = [
 
 const REQUIRED_JS = [
   'js/main.js',
+  'js/santhwanam-config.js',
   'js/downloads.js',
   'js/gallery.js',
   'js/contact.js',
@@ -69,6 +71,8 @@ const REQUIRED_ASSETS = [
   'assets/downloads/fixed-deposit-application.pdf',
   'assets/downloads/education-award-application.pdf',
   'assets/downloads/loan-statement-application.pdf',
+  'assets/downloads/santhwanam-application-form.pdf',
+  'assets/downloads/santhwanam-claim-request-form.pdf',
   'assets/images/bank-sbi-logo.svg',
   'assets/images/bank-kerala-logo.svg',
   'assets/images/bank-kerala-logo.jpg',
@@ -364,7 +368,8 @@ const faqCategories = [
   'Deposits',
   'Loans',
   'Applications &amp; Documents',
-  'Society Rooms &amp; Dormitories'
+  'Society Rooms &amp; Dormitories',
+  'Santhwanam Welfare Scheme'
 ];
 faqCategories.forEach(cat => {
   assert(faqContent.includes(cat), `faq.html includes FAQ category: "${cat}"`);
@@ -511,6 +516,71 @@ assert(contactFormHtml.includes('id="societyEnquiryForm"'), 'contact.html contai
 assert(contactFormJs.includes('8301995940'), 'js/contact.js targets society WhatsApp 8301995940');
 assert(contactFormJs.includes('https://wa.me/'), 'js/contact.js creates official wa.me direct chat link');
 assert(contactFormJs.includes('startWhatsAppChatBtn'), 'js/contact.js binds click event to startWhatsAppChatBtn');
+
+// 11. SANTHWANAM WELFARE SCHEME INTEGRATION & COMPLIANCE VERIFICATION
+console.log('\n--- 11. Santhwanam Welfare Scheme Integration & Compliance Verification ---');
+const santhwanamHtml = fs.readFileSync(path.join(ROOT_DIR, 'santhwanam.html'), 'utf-8');
+const downloadsHtml = fs.readFileSync(path.join(ROOT_DIR, 'downloads.html'), 'utf-8');
+const galleryHtml = fs.readFileSync(path.join(ROOT_DIR, 'gallery.html'), 'utf-8');
+
+assert(santhwanamHtml.includes('Santhwanam Welfare Scheme'), 'santhwanam.html contains Santhwanam Welfare Scheme heading');
+assert(santhwanamHtml.includes('A Helping Hand in Times of Need.'), 'santhwanam.html contains tagline A Helping Hand in Times of Need.');
+assert(santhwanamHtml.includes('₹500'), 'santhwanam.html prominently states ₹500 lifetime premium');
+assert(santhwanamHtml.includes('About Santhwanam'), 'santhwanam.html includes About Santhwanam section');
+assert(santhwanamHtml.includes('Medical Treatment Assistance'), 'santhwanam.html includes Medical Treatment Assistance');
+assert(santhwanamHtml.includes('Death Benefit'), 'santhwanam.html includes Death Benefit');
+assert(santhwanamHtml.includes('Apply for Treatment Aid'), 'santhwanam.html includes Apply for Treatment Aid CTA');
+assert(!santhwanamHtml.includes('Apply for Death Claim'), 'santhwanam.html excludes Apply for Death Claim CTA as requested');
+assert(!santhwanamHtml.includes('How to Access the Scheme'), 'santhwanam.html excludes How to Access the Scheme section as requested');
+assert(santhwanamHtml.includes('Download Application'), 'santhwanam.html includes Download Application CTAs');
+assert(santhwanamHtml.includes('Contact the Society'), 'santhwanam.html includes Contact the Society section');
+
+// Subrule prohibition guardrails
+[santhwanamHtml, downloadsHtml, galleryHtml].forEach((doc, idx) => {
+  const name = ['santhwanam.html', 'downloads.html', 'gallery.html'][idx];
+  const lower = doc.toLowerCase();
+  assert(!lower.includes('subrule') && !lower.includes('sub-rule'), `${name} does not expose or link any Santhwanam sub-rules`);
+});
+
+// Homepage card check
+assert(indexHtml.includes('SANTHWANAM WELFARE SCHEME'), 'index.html features SANTHWANAM WELFARE SCHEME card');
+assert(indexHtml.includes('Medical Assistance') && indexHtml.includes('Death Benefit') && indexHtml.includes('Lifetime Premium: ₹500'), 'index.html displays key Santhwanam highlights');
+assert(indexHtml.includes('Explore Santhwanam') && indexHtml.includes('href="santhwanam.html"'), 'index.html links Explore Santhwanam to santhwanam.html');
+
+// Navigation integration check across all 16 pages
+REQUIRED_PAGES.forEach(page => {
+  const content = fs.readFileSync(path.join(ROOT_DIR, page), 'utf-8');
+  assert(content.includes('nav-dropdown-menu'), `${page} includes Services dropdown menu`);
+  assert(content.includes('href="services.html#deposits"') && content.includes('href="services.html#loans"') && content.includes('href="santhwanam.html"'), `${page} includes Deposits & Savings, Member Loans, and Santhwanam Welfare Scheme under Services nav`);
+});
+
+// Downloads integration check (exact 2 entries)
+assert(downloadsHtml.includes('data-filter="santhwanam"'), 'downloads.html includes Welfare Scheme – Santhwanam category filter');
+assert(downloadsHtml.includes('Santhwanam Welfare Scheme Application Form'), 'downloads.html includes Santhwanam Welfare Scheme Application Form');
+assert(downloadsHtml.includes('Santhwanam Request for Treatment Aid / Death Claim'), 'downloads.html includes Santhwanam Request for Treatment Aid / Death Claim');
+const santhwanamDocMatches = downloadsHtml.match(/data-category="santhwanam"/g) || [];
+assert(santhwanamDocMatches.length === 2, `downloads.html contains ONLY 2 documents in Santhwanam category (found ${santhwanamDocMatches.length})`);
+assert(downloadsHtml.includes('assets/downloads/santhwanam-application-form.pdf'), 'downloads.html links uploaded official Santhwanam Application PDF');
+assert(santhwanamHtml.includes('assets/downloads/santhwanam-application-form.pdf'), 'santhwanam.html links uploaded official Santhwanam Application PDF');
+assert(downloadsHtml.includes('assets/downloads/santhwanam-claim-request-form.pdf'), 'downloads.html links uploaded official Santhwanam Claim Request PDF');
+assert(santhwanamHtml.includes('assets/downloads/santhwanam-claim-request-form.pdf'), 'santhwanam.html links uploaded official Santhwanam Claim Request PDF');
+
+// FAQ 10 questions + confirmation phrase
+assert(faqHtml.includes('Please contact Wayanad District Police Co-operative Society Ltd. No. W 208 for the latest applicable information.'), 'faq.html displays required confirmation notice');
+assert(faqHtml.includes('10. Where can I obtain the Santhwanam application forms?'), 'faq.html includes all 10 Santhwanam FAQ questions');
+
+// Contact enquiry types
+[
+  'General Enquiry',
+  'Loan Enquiry',
+  'Deposit Enquiry',
+  'Santhwanam Welfare Scheme',
+  'Application/Form Enquiry',
+  'Room/Dormitory Enquiry',
+  'Other'
+].forEach(opt => {
+  assert(contactFormHtml.includes(`value="${opt}"`), `contact.html Enquiry Type includes "${opt}"`);
+});
 
 console.log('\n==================================================');
 console.log(`TEST SUMMARY: ${passedTests}/${totalTests} tests passed (${failedTests} failures)`);

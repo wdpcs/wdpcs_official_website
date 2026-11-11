@@ -208,6 +208,28 @@ const SITE_SEARCH_INDEX = [
     description: "Requisition form for obtaining certified loan ledgers, outstanding balance certificates, and interest tax statements.",
     keywords: "loan statement certificate ledger balance tax clearance requisition"
   },
+  // Santhwanam Welfare Scheme
+  {
+    title: "Santhwanam Welfare Scheme",
+    category: "Member Welfare",
+    url: "santhwanam.html",
+    description: "A welfare initiative operated by Wayanad District Police Co-operative Society Ltd. No. W 208 with a one-time lifetime premium of ₹500 providing eligible medical treatment assistance and death benefits.",
+    keywords: "santhwanam welfare scheme medical treatment assistance aid death benefit lifetime premium 500 family support claimant"
+  },
+  {
+    title: "Santhwanam Welfare Scheme Application Form",
+    category: "Downloads",
+    url: "downloads.html?category=santhwanam#santhwanam-enrolment-form",
+    description: "For enrolment in the Santhwanam Welfare Scheme (Welfare Scheme – Santhwanam category).",
+    keywords: "santhwanam application form enrolment lifetime premium 500 welfare scheme download"
+  },
+  {
+    title: "Santhwanam Request for Treatment Aid",
+    category: "Downloads",
+    url: "downloads.html?category=santhwanam#santhwanam-claim-form",
+    description: "Official application form for requesting eligible medical treatment assistance under the Santhwanam Welfare Scheme (no application form is required for death benefit claims).",
+    keywords: "santhwanam request treatment aid medical assistance welfare claim download"
+  },
 
   // Supporting Pages & FAQs
   {

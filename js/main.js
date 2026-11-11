@@ -5,6 +5,7 @@
 
 document.addEventListener('DOMContentLoaded', () => {
   initMobileNav();
+  initDropdownNav();
   initFontResizer();
   initModals();
   initPlaceholderAlerts();
@@ -55,7 +56,7 @@ function initMobileNav() {
   });
 
   // Close when clicking any nav link inside mobile drawer
-  mainNav.querySelectorAll('.nav-link').forEach(link => {
+  mainNav.querySelectorAll('.nav-link, .nav-dropdown-link').forEach(link => {
     link.addEventListener('click', () => {
       if (window.innerWidth <= 1160) {
         closeMenu();
@@ -87,6 +88,54 @@ function initMobileNav() {
       }
     }, 100);
   }, { passive: true });
+}
+
+/* ==========================================================================
+   Services Dropdown Menu Navigation (Desktop & Mobile Accessibility)
+   ========================================================================== */
+function initDropdownNav() {
+  const dropdowns = document.querySelectorAll('.nav-dropdown');
+  if (!dropdowns.length) return;
+
+  dropdowns.forEach(dropdown => {
+    const toggleBtn = dropdown.querySelector('.nav-dropdown-toggle');
+    if (!toggleBtn) return;
+
+    function syncAria() {
+      const isMobile = window.innerWidth <= 1160;
+      const expanded = isMobile ? !dropdown.classList.contains('mobile-collapsed') : dropdown.classList.contains('open');
+      toggleBtn.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+    }
+
+    syncAria();
+    window.addEventListener('resize', syncAria, { passive: true });
+
+    toggleBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      if (window.innerWidth <= 1160) {
+        dropdown.classList.toggle('mobile-collapsed');
+      } else {
+        dropdown.classList.toggle('open');
+      }
+      syncAria();
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!dropdown.contains(e.target) && dropdown.classList.contains('open')) {
+        dropdown.classList.remove('open');
+        syncAria();
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && dropdown.classList.contains('open')) {
+        dropdown.classList.remove('open');
+        syncAria();
+        toggleBtn.focus();
+      }
+    });
+  });
 }
 
 /* ==========================================================================
@@ -187,12 +236,13 @@ function closeModal(modal) {
    Placeholder & Download Notice Alert
    ========================================================================== */
 function initPlaceholderAlerts() {
-  document.querySelectorAll('.js-placeholder-download').forEach(btn => {
-    btn.addEventListener('click', (e) => {
+  document.addEventListener('click', (e) => {
+    const btn = e.target.closest('.js-placeholder-download');
+    if (btn) {
       e.preventDefault();
       const docName = btn.getAttribute('data-doc-name') || 'Official Application Form';
       showPlaceholderModal(docName);
-    });
+    }
   });
 
   document.querySelectorAll('.js-external-booking').forEach(btn => {
