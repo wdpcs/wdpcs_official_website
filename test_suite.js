@@ -557,7 +557,10 @@ REQUIRED_PAGES.forEach(page => {
 // Downloads integration check (exact 2 entries)
 assert(downloadsHtml.includes('data-filter="santhwanam"'), 'downloads.html includes Welfare Scheme – Santhwanam category filter');
 assert(downloadsHtml.includes('Santhwanam Welfare Scheme Application Form'), 'downloads.html includes Santhwanam Welfare Scheme Application Form');
-assert(downloadsHtml.includes('Santhwanam Request for Treatment Aid / Death Claim'), 'downloads.html includes Santhwanam Request for Treatment Aid / Death Claim');
+assert(downloadsHtml.includes('Santhwanam Request for Treatment Aid'), 'downloads.html includes Santhwanam Request for Treatment Aid');
+assert(!downloadsHtml.includes('Treatment Aid / Death Claim'), 'downloads.html form applies strictly to Treatment Aid (no Death Claim application)');
+assert(santhwanamHtml.toLowerCase().includes('no separate application form is required for a death benefit claim'), 'santhwanam.html clearly notes no application form required for Death Claim');
+assert(faqHtml.toLowerCase().includes('no separate application form is required for a death benefit claim'), 'faq.html clearly notes no application form required for Death Claim');
 const santhwanamDocMatches = downloadsHtml.match(/data-category="santhwanam"/g) || [];
 assert(santhwanamDocMatches.length === 2, `downloads.html contains ONLY 2 documents in Santhwanam category (found ${santhwanamDocMatches.length})`);
 assert(downloadsHtml.includes('assets/downloads/santhwanam-application-form.pdf'), 'downloads.html links uploaded official Santhwanam Application PDF');
