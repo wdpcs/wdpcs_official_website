@@ -248,7 +248,7 @@ REQUIRED_PAGES.forEach(page => {
   assert(content.includes('header-search-btn'), `${page} has header search button`);
   assert(content.includes('headerSearchModal'), `${page} has header search modal`);
   assert(content.includes('site-footer'), `${page} has standardized footer`);
-  assert(content.includes('ThinkinIT'), `${page} contains website design courtesy : ThinkinIT`);
+  assert(content.includes('ThinkinIT') && content.includes('Developed by :') && !content.includes('Website Design Courtesy'), `${page} contains Developed by : ThinkinIT`);
   assert(content.includes('04936 205940') || content.includes('04936205940'), `${page} contains official telephone 04936 205940`);
 });
 
