@@ -532,7 +532,8 @@ assert(santhwanamHtml.includes('Death Benefit'), 'santhwanam.html includes Death
 assert(santhwanamHtml.includes('Apply for Treatment Aid'), 'santhwanam.html includes Apply for Treatment Aid CTA');
 assert(!santhwanamHtml.includes('Apply for Death Claim'), 'santhwanam.html excludes Apply for Death Claim CTA as requested');
 assert(!santhwanamHtml.includes('How to Access the Scheme'), 'santhwanam.html excludes How to Access the Scheme section as requested');
-assert(santhwanamHtml.includes('Download Application'), 'santhwanam.html includes Download Application CTAs');
+assert(!santhwanamHtml.includes('id="santhwanam-forms"') && !santhwanamHtml.includes('santhwanam-form-card'), 'santhwanam.html excludes inline forms download section as requested');
+assert(santhwanamHtml.includes('downloads.html?category=santhwanam'), 'santhwanam.html directs users to Downloads page for Santhwanam forms');
 assert(santhwanamHtml.includes('Contact the Society'), 'santhwanam.html includes Contact the Society section');
 
 // Subrule prohibition guardrails
@@ -564,9 +565,8 @@ assert(faqHtml.toLowerCase().includes('no separate application form is required 
 const santhwanamDocMatches = downloadsHtml.match(/data-category="santhwanam"/g) || [];
 assert(santhwanamDocMatches.length === 2, `downloads.html contains ONLY 2 documents in Santhwanam category (found ${santhwanamDocMatches.length})`);
 assert(downloadsHtml.includes('assets/downloads/santhwanam-application-form.pdf'), 'downloads.html links uploaded official Santhwanam Application PDF');
-assert(santhwanamHtml.includes('assets/downloads/santhwanam-application-form.pdf'), 'santhwanam.html links uploaded official Santhwanam Application PDF');
-assert(downloadsHtml.includes('assets/downloads/santhwanam-claim-request-form.pdf'), 'downloads.html links uploaded official Santhwanam Claim Request PDF');
-assert(santhwanamHtml.includes('assets/downloads/santhwanam-claim-request-form.pdf'), 'santhwanam.html links uploaded official Santhwanam Claim Request PDF');
+assert(downloadsHtml.includes('assets/downloads/santhwanam-claim-request-form.pdf'), 'downloads.html links uploaded official Santhwanam Treatment Aid Request PDF');
+assert(!santhwanamHtml.includes('assets/downloads/santhwanam-'), 'santhwanam.html keeps form PDFs strictly under Downloads page');
 
 // FAQ 10 questions + confirmation phrase
 assert(faqHtml.includes('Please contact Wayanad District Police Co-operative Society Ltd. No. W 208 for the latest applicable information.'), 'faq.html displays required confirmation notice');
