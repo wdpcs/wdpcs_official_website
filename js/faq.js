@@ -4,18 +4,17 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-  const faqButtons = document.querySelectorAll('.faq-header-btn');
+  // Delegated handler supports both static and dynamically hydrated CMS FAQs
+  document.addEventListener('click', (e) => {
+    const button = e.target.closest('.faq-header-btn');
+    if (!button) return;
 
-  faqButtons.forEach(button => {
-    button.addEventListener('click', () => {
-      const parentItem = button.closest('.faq-item');
-      const isExpanded = button.getAttribute('aria-expanded') === 'true';
+    const parentItem = button.closest('.faq-item');
+    const isExpanded = button.getAttribute('aria-expanded') === 'true';
 
-      // Toggle current item
-      button.setAttribute('aria-expanded', !isExpanded);
-      if (parentItem) {
-        parentItem.classList.toggle('active', !isExpanded);
-      }
-    });
+    button.setAttribute('aria-expanded', String(!isExpanded));
+    if (parentItem) {
+      parentItem.classList.toggle('active', !isExpanded);
+    }
   });
 });

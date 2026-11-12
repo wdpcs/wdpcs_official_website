@@ -1,0 +1,22 @@
+{
+  "name": "wdpcs-cms-portal",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Independent Website Administration Portal & Content Management System for Wayanad District Police Co-operative Society Ltd. No. W 208",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "seed": "node src/scripts/seed.js",
+    "backup": "node src/scripts/backup.js",
+    "test": "node test_cms.js"
+  },
+  "engines": {
+    "node": ">=24.0.0"
+  },
+  "dependencies": {
+    "express": "^5.1.0",
+    "multer": "^2.0.0",
+    "sharp": "^0.34.1"
+  }
+}
+

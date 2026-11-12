@@ -1,4 +1,4 @@
-﻿# Operating System Files
+# Operating System Files
 Thumbs.db
 Thumbs.db:encryptable
 ehthumbs.db
@@ -23,6 +23,16 @@ $RECYCLE.BIN/
 *.log
 *.tmp
 *.bak
+*.sqlite*
+*.db
 
 # Dependencies (if installed locally)
 node_modules/
+
+# CMS Portal secrets, runtime storage & backups (never commit to public repo)
+cms-portal/.env
+cms-portal/.env.*
+!cms-portal/.env.example
+cms-portal/node_modules/
+cms-portal/storage/
+cms-portal/backups/

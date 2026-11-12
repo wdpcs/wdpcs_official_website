@@ -7,7 +7,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const searchInput = document.getElementById('noticeSearchInput');
   const yearSelect = document.getElementById('noticeYearSelect');
   const categoryPills = document.querySelectorAll('.notice-filter-pill');
-  const noticeCards = document.querySelectorAll('.notice-card-item');
   const countDisplay = document.getElementById('noticeCountDisplay');
   const emptyState = document.getElementById('noticesEmptyState');
   const loadMoreBtn = document.getElementById('noticesLoadMoreBtn');
@@ -18,6 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let visibleLimit = 6;
 
   function filterNotices() {
+    const noticeCards = document.querySelectorAll('.notice-card-item');
     let matchingCards = [];
 
     noticeCards.forEach(card => {
@@ -66,6 +66,8 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
   }
+
+  window.wdpcsFilterNotices = filterNotices;
 
   if (searchInput) {
     let debounceTimer;

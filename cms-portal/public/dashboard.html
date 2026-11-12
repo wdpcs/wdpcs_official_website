@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  <title>Website Administration Dashboard | WDPCS Ltd. No. W 208</title>
+  <link rel="icon" type="image/svg+xml" href="/images/wdpcs-logo.svg">
+  <link rel="stylesheet" href="/css/admin.css">
+</head>
+<body>
+  <div class="admin-layout">
+    <!-- Collapsible Sidebar -->
+    <aside id="adminSidebar" class="admin-sidebar" aria-label="Admin Navigation">
+      <div class="sidebar-brand">
+        <div class="sidebar-logo-badge">
+          <img src="/images/wdpcs-logo.svg" alt="WDPCS Logo">
+        </div>
+        <div class="brand-text">
+          <div class="brand-title">WDPCS CMS Portal</div>
+          <div class="brand-sub">Ltd. No. W 208</div>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav" id="sidebarNav">
+        <button type="button" class="nav-item active" data-module="dashboard">
+          <span class="nav-icon">&#9635;</span><span class="nav-text">Dashboard</span>
+        </button>
+
+        <div class="nav-group-label">Website &amp; Services</div>
+        <button type="button" class="nav-item" data-module="general">
+          <span class="nav-icon">&#9998;</span><span class="nav-text">General Content</span>
+        </button>
+        <button type="button" class="nav-item" data-module="homepage">
+          <span class="nav-icon">&#8962;</span><span class="nav-text">Homepage Management</span>
+        </button>
+        <button type="button" class="nav-item" data-module="deposits">
+          <span class="nav-icon">&#9782;</span><span class="nav-text">Deposit Information</span>
+        </button>
+        <button type="button" class="nav-item" data-module="loans">
+          <span class="nav-icon">&#9878;</span><span class="nav-text">Loan Information</span>
+        </button>
+        <button type="button" class="nav-item" data-module="rates">
+          <span class="nav-icon">&#37;</span><span class="nav-text">Interest Rate Management</span>
+        </button>
+
+        <div class="nav-group-label">Communications &amp; Media</div>
+        <button type="button" class="nav-item" data-module="notices">
+          <span class="nav-icon">&#9993;</span><span class="nav-text">Notices &amp; Circulars</span>
+        </button>
+        <button type="button" class="nav-item" data-module="gallery">
+          <span class="nav-icon">&#9638;</span><span class="nav-text">Gallery Management</span>
+        </button>
+        <button type="button" class="nav-item" data-module="faqs">
+          <span class="nav-icon">&#63;</span><span class="nav-text">FAQ Management</span>
+        </button>
+        <button type="button" class="nav-item" data-module="downloads">
+          <span class="nav-icon">&#8681;</span><span class="nav-text">Application Forms &amp; Downloads</span>
+        </button>
+        <button type="button" class="nav-item" data-module="santhwanam">
+          <span class="nav-icon">&#9829;</span><span class="nav-text">Santhwanam Management</span>
+        </button>
+
+        <div class="nav-group-label">Security &amp; Administration</div>
+        <button type="button" class="nav-item" data-module="users">
+          <span class="nav-icon">&#9823;</span><span class="nav-text">User Management</span>
+        </button>
+        <button type="button" class="nav-item" data-module="roles">
+          <span class="nav-icon">&#9919;</span><span class="nav-text">Roles &amp; Permissions</span>
+        </button>
+        <button type="button" class="nav-item" data-module="audit">
+          <span class="nav-icon">&#9776;</span><span class="nav-text">Activity Logs</span>
+        </button>
+        <button type="button" class="nav-item" data-module="settings">
+          <span class="nav-icon">&#9881;</span><span class="nav-text">Settings &amp; Backups</span>
+        </button>
+      </nav>
+    </aside>
+
+    <!-- Main Workspace -->
+    <div class="admin-main">
+      <header class="admin-topbar">
+        <div class="topbar-left">
+          <button type="button" id="sidebarToggleBtn" class="btn btn-secondary btn-sm" aria-label="Toggle sidebar">&#9776;</button>
+          <div class="breadcrumbs" id="breadcrumbs">Admin Portal &rsaquo; <strong>Dashboard</strong></div>
+        </div>
+
+        <div class="topbar-right">
+          <input type="search" id="quickJumpInput" class="form-control" style="width:210px; padding:6px 10px;" placeholder="Jump to module..." list="moduleSearchList">
+          <datalist id="moduleSearchList">
+            <option value="Dashboard"></option>
+            <option value="Interest Rate Management"></option>
+            <option value="Notices & Circulars"></option>
+            <option value="Gallery Management"></option>
+            <option value="Application Forms & Downloads"></option>
+            <option value="General Content"></option>
+            <option value="Homepage Management"></option>
+            <option value="Santhwanam Management"></option>
+            <option value="FAQ Management"></option>
+            <option value="User Management"></option>
+            <option value="Activity Logs"></option>
+            <option value="Settings & Backups"></option>
+          </datalist>
+          <button type="button" id="pendingNotifyBtn" class="btn btn-warning btn-sm" title="View Pending Approvals">
+            Pending: <span id="pendingNotifyCount">0</span>
+          </button>
+          <button type="button" id="profileSecurityBtn" class="btn btn-secondary btn-sm">
+            <span id="currentUserName">Loading...</span> (<span id="currentUserRole">-</span>)
+          </button>
+          <button type="button" id="logoutBtn" class="btn btn-danger btn-sm">Logout</button>
+        </div>
+      </header>
+
+      <main class="admin-content" id="workspaceRoot">
+        <div id="globalToast" class="alert" style="display:none;" role="status"></div>
+        <div id="moduleMount"></div>
+      </main>
+    </div>
+  </div>
+
+  <!-- Shared Modal Container (Preview, Editors, Profile/MFA, Confirmation) -->
+  <div id="adminModalBackdrop" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="adminModalTitle">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h3 id="adminModalTitle">Modal</h3>
+        <button type="button" id="adminModalClose" class="modal-close" aria-label="Close modal">&times;</button>
+      </div>
+      <div class="modal-body" id="adminModalBody"></div>
+      <div class="modal-footer" id="adminModalFooter"></div>
+    </div>
+  </div>
+
+  <script src="/js/admin-editor.js" defer></script>
+  <script src="/js/admin-modules-content.js" defer></script>
+  <script src="/js/admin-modules-media.js" defer></script>
+  <script src="/js/admin-modules-system.js" defer></script>
+  <script src="/js/admin-app.js" defer></script>
+</body>
+</html>
+
