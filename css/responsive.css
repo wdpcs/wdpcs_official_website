@@ -362,6 +362,11 @@ textarea,
     gap: var(--space-5);
   }
 
+  .about-preview-grid {
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+    gap: var(--space-7);
+  }
+
   .contact-grid {
     grid-template-columns: 1fr;
     gap: var(--space-8);
@@ -726,6 +731,7 @@ textarea,
   .gallery-grid,
   .gallery-grid-2col,
   .glance-grid,
+  .about-preview-grid,
   .footer-grid {
     grid-template-columns: 1fr;
     gap: var(--space-4);
@@ -768,9 +774,23 @@ textarea,
 
   .santhwanam-benefit-footer .btn,
   .santhwanam-hero-actions .btn,
-  .santhwanam-home-cta-panel .btn {
+  .santhwanam-home-cta-panel .btn,
+  .about-preview-actions .btn {
     width: 100%;
     min-height: var(--touch-target-min);
+  }
+
+  .about-preview-actions {
+    width: 100%;
+  }
+
+  .about-info-card {
+    padding: var(--space-5);
+  }
+
+  .about-info-table th {
+    width: auto;
+    white-space: normal;
   }
 
   .director-card {
