@@ -661,10 +661,6 @@ textarea,
     display: none;
   }
 
-  .nav-cta-btn {
-    display: none;
-  }
-
   /* Hero Section */
   .hero-section {
     padding: var(--space-10) 0;

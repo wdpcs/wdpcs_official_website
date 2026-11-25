@@ -438,7 +438,7 @@ REQUIRED_PAGES.forEach(page => {
   assert(content.includes('class="main-nav"'), `${page} contains .main-nav`);
   assert(content.includes('class="header-actions"'), `${page} contains .header-actions`);
   assert(content.includes('class="header-search-btn"'), `${page} contains .header-search-btn`);
-  assert(content.includes('class="nav-cta-btn"'), `${page} contains .nav-cta-btn`);
+  assert(!content.includes('class="nav-cta-btn"'), `${page} excludes removed .nav-cta-btn (Forms button)`);
   assert(content.includes('class="mobile-menu-toggle"'), `${page} contains .mobile-menu-toggle`);
 });
 
